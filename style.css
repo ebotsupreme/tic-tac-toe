@@ -1,0 +1,30 @@
+.my-box {
+  background-color: white;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.x {
+  background-color: blue;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.nought {
+  background-color: red;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+#button {
+    height: 50px;
+    font-size: 20px;
+}
+
+/*//change made to commit*/

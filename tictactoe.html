@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Tic Tac Toe!</h1>
+      <table border = "1">
+        <tr>
+        <td class = "my-box" id="boxOne"></td>
+        <td class = "my-box" id="boxTwo"></td>
+        <td class = "my-box" id="boxThree"></td>
+      </tr>
+      <tr>
+        <td class = "my-box" id="boxFour"> </td>
+        <td class = "my-box" id="boxFive"> </td>
+        <td class = "my-box" id="boxSix"> </td>
+      </tr>
+      <tr>
+        <td class = "my-box" id="boxSeven"> </td>
+        <td class = "my-box" id="boxEight"> </td>
+        <td class = "my-box" id="boxNine"> </td>
+      </tr>
+
+      <button id="button" onclick=myFunction()>Clear The Board</button>
+
+    <script type="text/javascript">
+      var counter = 0;                                  //the counter variable will hold the position of array?
+      var boxes = document.querySelectorAll('.my-box'); //boxes variable will hold the my-box table class
+
+      for(var i = 0; i < boxes.length; i+=1){   //for loop to set box positions of array [0,1,2]
+          setBox(boxes[i]);                                                            //[3,4,5]
+      }                                                                                //[6,7,8]
+      function setBox(el){
+        el.addEventListener('click', function(){ //when clicked, adds function
+         if (el.className === 'my-box'){         //if class name is my-box
+          if (counter % 2 === 0) {                //then check to see if position is divisible by 2 meaning if it's even
+          el.className = "x";                     //if position is even, change classname to "x"
+          el.innerHTML = "<img src = \"x.png\" style = \"width: 100px\" />";  //load x image
+          }
+          else {
+           el.className = "nought";               //else change classname to nought
+           el.innerHTML = "<img src = \"o.png\" style = \"width: 100px\" />";   //load o image
+          }
+         }
+          console.log(el);                      //I think this consolelogs ht el posistion? not sure
+          counter = counter +1;                 //not sure what this counter does when adding +1?
+
+        if (boxes[0].className === "x" && boxes[1].className === "x" && boxes[2].className === "x" ||
+            boxes[3].className === "x" && boxes[4].className === "x" && boxes[5].className === "x" ||
+            boxes[6].className === "x" && boxes[7].className === "x" && boxes[8].className === "x" ||
+            boxes[0].className === "x" && boxes[3].className === "x" && boxes[6].className === "x" ||
+            boxes[1].className === "x" && boxes[4].className === "x" && boxes[7].className === "x" ||
+            boxes[2].className === "x" && boxes[5].className === "x" && boxes[8].className === "x" ||
+            boxes[0].className === "x" && boxes[4].className === "x" && boxes[8].className === "x" ||
+            boxes[2].className === "x" && boxes[4].className === "x" && boxes[6].className === "x"){
+                alert('player "X" + wins!');
+                myFunction();                   //not sure why myFunction ties to the button to make getting winner work?
+          } else if
+              (boxes[0].className === "nought" && boxes[1].className === "nought" && boxes[2].className === "nought" ||
+               boxes[3].className === "nought" && boxes[4].className === "nought" && boxes[5].className === "nought" ||
+               boxes[6].className === "nought" && boxes[7].className === "nought" && boxes[8].className === "nought" ||
+               boxes[0].className === "nought" && boxes[3].className === "nought" && boxes[6].className === "nought" ||
+               boxes[1].className === "nought" && boxes[4].className === "nought" && boxes[7].className === "nought" ||
+               boxes[2].className === "nought" && boxes[5].className === "nought" && boxes[8].className === "nought" ||
+               boxes[0].className === "nought" && boxes[4].className === "nought" && boxes[8].className === "nought" ||
+               boxes[2].className === "nought" && boxes[4].className === "nought" && boxes[6].className === "nought"){
+                  alert('player" "O" + wins!');
+                  myFunction();
+              }
+        });
+      }
+//change made to commit
+        myFunction = function() {          //clear board function
+          if (counter < 10){
+            console.log('nine');
+            document.location.href = '';  //this command clears the board somehow.
+            //counter = counter + 1;
+          }
+          console.log('win');
+        }
+
+    </script>
+
+  </table>
+  </body>
+  <!-- <img id="x" src="x.png" style="width: 100px; visibility: hidden"/> -->
+</html>
